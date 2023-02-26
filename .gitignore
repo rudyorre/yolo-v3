@@ -1,0 +1,4 @@
+__pycache__/
+yolov3.weights
+det/
+venv/
