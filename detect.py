@@ -42,12 +42,10 @@ def arg_parse():
     parser.add_argument("--bs", dest = "bs", help = "Batch size", default = 1)
     parser.add_argument("--confidence", dest = "confidence", help = "Object Confidence to filter predictions", default = 0.5)
     parser.add_argument("--nms_thresh", dest = "nms_thresh", help = "NMS Threshhold", default = 0.4)
-    parser.add_argument("--cfg", dest = 'cfgfile', help = 
-                        "Config file",
-                        default = "cfg/yolov3.cfg", type = str)
-    parser.add_argument("--weights", dest = 'weightsfile', help = 
-                        "weightsfile",
-                        default = "yolov3.weights", type = str)
+    parser.add_argument("--cfg", dest='cfgfile', help="Config file",
+                        default="cfg/yolov3.cfg", type=str)
+    parser.add_argument("--weights", dest = 'weightsfile', help="weightsfile",
+                        default=os.path.join('weights', 'yolov3.weights'), type=str)
     parser.add_argument("--reso", dest = 'reso', help = 
                         "Input resolution of the network. Increase to increase accuracy. Decrease to increase speed",
                         default = "416", type = str)
