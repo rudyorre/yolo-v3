@@ -3,18 +3,20 @@
 This repository contains a PyTorch implementation of YOLOv3, a popular object detection algorithm. The implementation is based on the [original paper](https://arxiv.org/abs/1804.02767) and the [official Darknet implementation](https://github.com/pjreddie/darknet).
 
 ## Installation
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/your_username/your_repository.git
-    ```
-2. Install the required packages:
-    ```
-    pip3 install -r requirements.txt
-    ```
-3. Download the YOLOv3 weights:
-    ```
-    wget https://pjreddie.com/media/files/yolov3.weights -O weights/yolov3.weights
-    ```
+Clone this repository:
+```bash
+git clone https://github.com/your_username/your_repository.git
+```
+
+Install the required packages (preferrably in a [virtual environment](https://docs.python.org/3/library/venv.html)):
+```
+pip3 install -r requirements.txt
+```
+
+Download the YOLOv3 weights:
+```
+wget https://pjreddie.com/media/files/yolov3.weights -O weights/yolov3.weights
+```
 
 ## Usage
 To run the YOLOv3 detector on an image:
@@ -34,3 +36,4 @@ Here are some sample results from running the detector on the COCO dataset:
 ## References
 - [YOLOv3 paper](https://arxiv.org/abs/1804.02767)
 - [Official Darknet implementation](https://github.com/pjreddie/darknet)
+- [@ayooshkathuria/pytorch-yolo-v3](https://github.com/ayooshkathuria/pytorch-yolo-v3)
