@@ -27,6 +27,7 @@ def main():
     with torch.no_grad():
         predictions = model(Variable(img), CUDA)
         predictions = write_results(predictions, confidence, len(classes), nms=True, nms_conf=nms_thresh)
+        print(predictions)
         print('Detected:', ', '.join([classes[int(prediction[-1].item())] for prediction in predictions]))
         
 if __name__ == '__main__':
