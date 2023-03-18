@@ -162,18 +162,19 @@ def main():
     
     scaling_factor = torch.min(inp_dim/im_dim_list,1)[0].view(-1,1)
     
+    print(output)
     
     output[:,[1,3]] -= (inp_dim - scaling_factor*im_dim_list[:,0].view(-1,1))/2
     output[:,[2,4]] -= (inp_dim - scaling_factor*im_dim_list[:,1].view(-1,1))/2
     
-    
+    print(scaling_factor)
     
     output[:,1:5] /= scaling_factor
-    
+    print(output)
     for i in range(output.shape[0]):
         output[i, [1,3]] = torch.clamp(output[i, [1,3]], 0.0, im_dim_list[i,0])
         output[i, [2,4]] = torch.clamp(output[i, [2,4]], 0.0, im_dim_list[i,1])
-        
+    
         
     output_recast = time.time()
     
@@ -198,7 +199,7 @@ def main():
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1 , 1)[0]
         c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4
         cv2.rectangle(img, c1, c2,color, -1)
-        cv2.putText(img, label, (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1)
+        cv2.putText(img, f'{label}: {x[5] * 100:.2f}%', (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1)
         return img
     
     list(map(lambda x: write(x, im_batches, orig_ims), output))
